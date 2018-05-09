@@ -17,15 +17,15 @@ bot.on('message', message => {
 
     fs.writeFile('Storage/points.json', JSON.stringify(points), (err) => {
         if (err) console.error (err);
-})
+    })
 
     if (message.content === prefix + "serpentard") {
         message.reply(`${points['Serpentard'].points}`);
     }
 
     if (message.content === prefix + "s") {
-        points['Serpentard'].points += 10;
         message.reply('10 Points pour Serpentard !');
+        points['Serpentard'].points += 10;
     }
 
     fs.writeFile('Storage/points.json', JSON.stringify(points), (err) => {
@@ -33,4 +33,4 @@ bot.on('message', message => {
     })
 });
 
-bot.login('process.env.TOKEN');
+bot.login(process.env.TOKEN);
