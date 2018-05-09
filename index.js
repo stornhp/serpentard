@@ -20,11 +20,14 @@ bot.on('message', message => {
     })
 
     if (message.content === prefix + "serpentard") {
-        message.reply(`${points['Serpentard'].points}`);
+        message.reply(points['Serpentard'].points)
     }
 
-    if (message.content === prefix + "s") {
-        message.reply('10 Points pour Serpentard !');
+    if (message.content === prefix + "rserpentard") {
+        message.reply('Retrait de 10 points pour Serpentard !')
+        points['Serpentard'].points -= 10;
+    } else if (message.content === prefix + "aserpentard") {
+        message.reply('10 Points pour Serpentard !')
         points['Serpentard'].points += 10;
     }
 
