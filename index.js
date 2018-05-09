@@ -21,20 +21,29 @@ bot.on('message', message => {
         if (err) console.error (err);
     })
 
-    if (message.content === prefix + "serpentard") {
-        message.reply(points['Serpentard'].points)
+    if (message.content  === prefix + "points") {
+        message.channel.send({embed: {
+            title: "Points Des Maisons",
+            color: 0x00A1D7,
+            field: [{
+                name: "Serpentard",
+                value: points['Serpentard'].points,
+                inline: true
+            },
+            {
+                name: "Gryffondor",
+                value: points['Gryffondor'].points,
+                inline: true
+            }]
+        }})
     }
-
+        
     if (message.content === prefix + "rserpentard") {
         message.reply('Retrait de 10 points pour Serpentard !')
         points['Serpentard'].points -= 10;
     } else if (message.content === prefix + "aserpentard") {
         message.reply('Ajout de 10 points pour Serpentard !')
         points['Serpentard'].points += 10;
-    }
-
-    if (message.content === prefix + "gryffondor") {
-        message.reply(points['Gryffondor'].points)
     }
 
     if (message.content === prefix + "rgryffondor") {
