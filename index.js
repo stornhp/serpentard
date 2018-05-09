@@ -11,6 +11,10 @@ bot.on('ready', () => {
 });
 
 bot.on('message', message => {
+    if (!points['Serdaigle']) points['Serdaigle'] = {}
+    if (!points['Serdaigle'].points) points['Serdaigle'].points = 0.
+    if (!points['Poufsouffle']) points['Poufsouffle'] = {}
+    if (!points['Poufsouffle'].points) points['Poufsouffle'].points = 0.
     if (!points['Gryffondor']) points['Gryffondor'] = {}
     if (!points['Gryffondor'].points) points['Gryffondor'].points = 0.
     if (!points['Serpentard']) points['Serpentard'] = {}
@@ -25,7 +29,7 @@ bot.on('message', message => {
         message.channel.send({embed: {
             title: "Points Des Maisons",
             color: 0x00A1D7,
-            fields: [{
+            field: [{
                 name: "Serpentard",
                 value: points['Serpentard'].points,
                 inline: true
@@ -34,10 +38,36 @@ bot.on('message', message => {
                 name: "Gryffondor",
                 value: points['Gryffondor'].points,
                 inline: true
+            },
+            {
+                name: "Poufsouffle",
+                value: points['Poufsouffle'].points,
+                inline: true
+            },
+            {
+                name: "Serdaigle",
+                value: points['Serdaigle'].points,
+                inline: true
             }]
         }})
     }
         
+    if (message.content === prefix + "rserdaigle") {
+        message.reply('Retrait de 10 points pour Serdaigle !')
+        points['Serdaigle'].points -= 10;
+    } else if (message.content === prefix + "aserdaigle") {
+        message.reply('Ajout de 10 points pour Serdaigle !')
+        points['Serdaigle'].points += 10;
+    }
+    
+    if (message.content === prefix + "rpoufsouffle") {
+        message.reply('Retrait de 10 points pour Poufsouffle !')
+        points['Poufsouffle'].points -= 10;
+    } else if (message.content === prefix + "apoufsouffle") {
+        message.reply('Ajout de 10 points pour Poufsouffle !')
+        points['Poufsouffle'].points += 10;
+    }
+    
     if (message.content === prefix + "rserpentard") {
         message.reply('Retrait de 10 points pour Serpentard !')
         points['Serpentard'].points -= 10;
