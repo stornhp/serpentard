@@ -19,7 +19,11 @@ bot.on('message', message => {
         if (err) console.error (err);
 })
 
-    if (message.content === prefix + "serpentard") {
+    if (message.content === prefix + "serpentard) {
+        message.reply(`${points['Serpentard'].points}`);
+    }
+
+    if (message.content === prefix + "s") {
         points['Serpentard'].points += 10;
         message.reply('10 Points pour Serpentard !');
     }
