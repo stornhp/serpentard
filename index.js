@@ -25,7 +25,7 @@ bot.on('message', message => {
         message.channel.send({embed: {
             title: "Points Des Maisons",
             color: 0x00A1D7,
-            field: [{
+            fields: [{
                 name: "Serpentard",
                 value: points['Serpentard'].points,
                 inline: true
