@@ -11,6 +11,8 @@ bot.on('ready', () => {
 });
 
 bot.on('message', message => {
+    if (!points['Gryffondor']) points['Gryffondor'] = {}
+    if (!points['Gryffondor'].points) points['Gryffondor'].points = 0.
     if (!points['Serpentard']) points['Serpentard'] = {}
     if (!points['Serpentard'].points) points['Serpentard'].points = 0.
     let prefix = "!"
@@ -27,10 +29,22 @@ bot.on('message', message => {
         message.reply('Retrait de 10 points pour Serpentard !')
         points['Serpentard'].points -= 10;
     } else if (message.content === prefix + "aserpentard") {
-        message.reply('10 Points pour Serpentard !')
+        message.reply('Ajout de 10 points pour Serpentard !')
         points['Serpentard'].points += 10;
     }
 
+    if (message.content === prefix + "gryffondor") {
+        message.reply(points['Gryffondor'].points)
+    }
+
+    if (message.content === prefix + "rgryffondor") {
+        message.reply('Retrait de 10 points pour Gryffondor !')
+        points['Gryffondor'].points -= 10;
+    } else if (message.content === prefix + "agryffondor") {
+        message.reply('Ajout de 10 points pour Gryffondor !')
+        points['Gryffondor'].points += 10;
+    }
+    
     fs.writeFile('Storage/points.json', JSON.stringify(points), (err) => {
         if (err) console.error(err);
     })
