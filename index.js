@@ -79,7 +79,7 @@ bot.on('message', message => {
             color: 0x00A1D7,
             fields: [{
                 name: "Général",
-                description: `!choipeaux | Permet d'être répartit dans une maison.
+                value: `!choipeaux | Permet d'être répartit dans une maison.
 !balance | Permet de voir son compte bancaire.
 !paye | Permet de reçevoir sa paye (Tout les 24h)
 !points | Permet de voir le nombre de points de chaques maisons.`,
@@ -87,7 +87,7 @@ bot.on('message', message => {
             },
             {
                 name: "Professeur",
-                description: `!agryffondor | Ajoute 10 points à Gryffondor.
+                value: `!agryffondor | Ajoute 10 points à Gryffondor.
 !rgryffondor | Retire 10 points à Gryffondor.
 !apoufsouffle | Ajoute 10 points à Poufsouffle.
 !rpousouffle | Retire 10 points à Poufsouffle.
