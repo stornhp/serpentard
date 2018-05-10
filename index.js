@@ -25,6 +25,42 @@ bot.on('message', message => {
         if (err) console.error (err);
     })
 
+    if (message.content === prefix + "felicitation") {
+        const directeur = message.guild.roles.find('name', 'Directeur').id;
+        if (message.member.roles.has(directeur.id)) {
+            message.reply('Ajout de 10 points pour Serdaigle !')
+            points['Serdaigle'].points += 150;
+        } else {
+            message.reply(`Tu n'es pas Directeur !`)
+            console.log(`${member.user.tag} a essayé !felicitation.`);
+        }
+    }
+    if (message.content === prefix + "aide") {
+        message.channel.send({embed: {
+            tile: "Aide Philosophale",
+            color: 0x00A1D7,
+            field: [{
+                name: "Général",
+                description: `!choipeaux | Permet d'être répartit dans une maison.
+!balance | Permet de voir son compte bancaire.
+!paye | Permet de reçevoir sa paye (Tout les 24h)
+!points | Permet de voir le nombre de points de chaques maisons.`,
+                inline: false
+            },
+            {
+                name: "Professeur",
+                description: `!agryffondor | Ajoute 10 points à Gryffondor.
+!rgryffondor | Retire 10 points à Gryffondor.
+!apoufsouffle | Ajoute 10 points à Poufsouffle.
+!rpousouffle | Retire 10 points à Poufsouffle.
+!aserdaigle | Ajoute 10 points à Serdaigle.
+!rserdaigle | Retire 10 points à Serdaigle.
+!aserpentard | Ajoute 10 points à Serpentard.
+!rserpentard | Retire 10 points à Serpentard.`,
+                inline: false
+            }]
+        }})
+    }
     if (message.content  === prefix + "points") {
         message.channel.send({embed: {
             title: "Points Des Maisons",
