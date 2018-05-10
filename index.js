@@ -75,7 +75,7 @@ bot.on('message', message => {
     
     if (message.content === prefix + "aide") {
         message.channel.send({embed: {
-            tile: "Aide Philosophale",
+            title: "Aide Philosophale",
             color: 0x00A1D7,
             field: [{
                 name: "Général",
