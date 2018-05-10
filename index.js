@@ -25,14 +25,12 @@ bot.on('message', message => {
         if (err) console.error (err);
     })
 
-    if (message.content === prefix + "felicitation") {
-        const directeur = message.guild.roles.find('name', 'Directeur').id;
-        if (message.member.roles.has(directeur.id)) {
-            message.reply('Ajout de 10 points pour Serdaigle !')
-            points['Serdaigle'].points += 150;
+    if (message.content === prefix + "foo") {
+        let ModRole = message.guild.roles.find("name", "Mods");
+        if (message.member.roles.has(modRole.id)) {
+            message.channel.sendMessage("bar!");
         } else {
-            message.reply(`Tu n'es pas Directeur !`)
-        }
+            message.reply("You don't have any roles for use that");
     }
     if (message.content === prefix + "aide") {
         message.channel.send({embed: {
