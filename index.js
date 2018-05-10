@@ -26,11 +26,12 @@ bot.on('message', message => {
     })
 
     if (message.content === prefix + "foo") {
-        let modRole = message.guild.roles.find("name", "Mods");
-        if (message.member.roles.has(modRole)) {
-            message.channel.sendMessage("bar!");
-        } else {
-            message.reply("You don't have any roles for use that");
+        if (message.member.roles.get('428950847125323786')) {
+            message.reply ('Tu es beau !');
+        }
+        else
+        {
+            message.reply('Beurk, tes pas beau');
         }
     }
     
