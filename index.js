@@ -32,7 +32,6 @@ bot.on('message', message => {
             points['Serdaigle'].points += 150;
         } else {
             message.reply(`Tu n'es pas Directeur !`)
-            console.log(`${member.user.tag} a essayé !felicitation.`);
         }
     }
     if (message.content === prefix + "aide") {
