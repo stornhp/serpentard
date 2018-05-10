@@ -25,13 +25,51 @@ bot.on('message', message => {
         if (err) console.error (err);
     })
 
-    if (message.content === prefix + "foo") {
+    if (message.content === prefix + "fgryffondor") {
         if (message.member.roles.get('428950847125323786')) {
-            message.reply ('Tu es beau !');
+            message.reply('Ajout de 150 points à Gryffondor !');
+            points['Gryffondor'].points += 150;
         }
         else
         {
-            message.reply('Beurk, tes pas beau');
+            message.reply("Tu n'as pas les permissions pour utiliser ça !");
+            console.log("Quelqu'un a essayé d'utiliser !fgryffondor");
+        }
+    }
+    
+    if (message.content === prefix + "fserpentard") {
+        if (message.member.roles.get('428950847125323786')) {
+            message.reply('Ajout de 150 points pour Serpentard !');
+            points['Serpentard'].points += 150;
+        }
+        else
+        {
+            message.reply("Tu n'as pas les permissions pour utiliser ça !");
+            console.log("Quelqu'un a essayé d'utiliser !fserpentard");
+        }
+    }
+    
+    if (message.content === prefix + "fpoufsouffle") {
+        if (message.member.roles.get('428950847125323786')) {
+            message.reply('Ajout de 150 points pour Poufsouffle !');
+            points['Poufsouffle'].points += 150;
+        }
+        else
+        {
+            message.reply("Tu n'as pas les permissions pour utiliser ça !");
+            console.log("Quelqu'un a essayé d'utiliser !fpoufsouffle");
+        }
+    }
+    
+    if (message.content === pregix + "fserdaigle") {
+        if (message.member.roles.get('428950847125323786')) {
+            message.reply('Ajout de 150 points pour Serdaigle !');
+            points['Serdaigle'].points += 150;
+        }
+        else
+        {
+            message.reply("Tu n'as pas les permissions pour utiliser ça !");
+            console.log("Quelqu'un a essayé d'utiliser !fserdaigle");
         }
     }
     
@@ -89,35 +127,60 @@ bot.on('message', message => {
     }
         
     if (message.content === prefix + "rserdaigle") {
-        message.reply('Retrait de 10 points pour Serdaigle !')
-        points['Serdaigle'].points -= 10;
-    } else if (message.content === prefix + "aserdaigle") {
-        message.reply('Ajout de 10 points pour Serdaigle !')
-        points['Serdaigle'].points += 10;
+        if (message.member.roles.get('428952495591784449')) {
+            message.reply('Retrait de 10 points pour Serdaigle !')
+            points['Serdaigle'].points -= 10;
+        }
     }
     
+    if (message.content === prefix + "aserdaigle") {
+        if (message.member.roles.get('428952495591784449')) {
+            message.reply('Ajout de 10 points pour Serdaigle !')
+            points['Serdaigle'].points += 10;
+        }
+    }
+
     if (message.content === prefix + "rpoufsouffle") {
-        message.reply('Retrait de 10 points pour Poufsouffle !')
-        points['Poufsouffle'].points -= 10;
-    } else if (message.content === prefix + "apoufsouffle") {
-        message.reply('Ajout de 10 points pour Poufsouffle !')
-        points['Poufsouffle'].points += 10;
+        if (message.member.roles.get('428952495591784449')) {
+            message.reply('Retrait de 10 points pour Poufsouffle !')
+            points['Poufsouffle'].points -= 10;
+        }
+    }
+    
+    if (message.content === prefix + "apoufsouffle") {
+        if (message.member.roles.get('428952495591784449')) {
+            message.reply('Ajout de 10 points pour Poufsouffle !')
+            points['Poufsouffle'].points += 10;
+        }
     }
     
     if (message.content === prefix + "rserpentard") {
-        message.reply('Retrait de 10 points pour Serpentard !')
-        points['Serpentard'].points -= 10;
-    } else if (message.content === prefix + "aserpentard") {
-        message.reply('Ajout de 10 points pour Serpentard !')
-        points['Serpentard'].points += 10;
+        if (message.member.roles.get('428952495591784449')) {
+            message.reply('Retrait de 10 points pour Serpentard !')
+            points['Serpentard'].points -= 10;
+        }
+    }
+
+    if (message.content === prefix + "aserpentard") {
+        if (message.member.roles.get('428952495591784449')) {
+            message.reply('Ajout de 10 points pour Serpentard !')
+            points['Serpentard'].points += 10;
+        }
     }
 
     if (message.content === prefix + "rgryffondor") {
-        message.reply('Retrait de 10 points pour Gryffondor !')
-        points['Gryffondor'].points -= 10;
-    } else if (message.content === prefix + "agryffondor") {
-        message.reply('Ajout de 10 points pour Gryffondor !')
-        points['Gryffondor'].points += 10;
+        if (message.member.roles.get('428952495591784449')) {
+            message.reply('Retrait de 10 points pour Gryffondor !')
+            points['Gryffondor'].points -= 10;
+        }
+    }
+    
+    
+    if (message.content === prefix + "agryffondor") {
+        if (message.member.roles.get('428952495591784449')) {
+            message.reply('Ajout de 10 points pour Gryffondor !')
+            points['Gryffondor'].points += 10;
+        }
     }
     
     fs.writeFile('Storage/points.json', JSON.stringify(points), (err) => {
