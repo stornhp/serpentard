@@ -77,7 +77,7 @@ bot.on('message', message => {
         message.channel.send({embed: {
             title: "Aide Philosophale",
             color: 0x00A1D7,
-            field: [{
+            fields: [{
                 name: "Général",
                 description: `!choipeaux | Permet d'être répartit dans une maison.
 !balance | Permet de voir son compte bancaire.
