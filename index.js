@@ -31,7 +31,9 @@ bot.on('message', message => {
             message.channel.sendMessage("bar!");
         } else {
             message.reply("You don't have any roles for use that");
+        }
     }
+    
     if (message.content === prefix + "aide") {
         message.channel.send({embed: {
             tile: "Aide Philosophale",
