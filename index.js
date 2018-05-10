@@ -26,7 +26,7 @@ bot.on('message', message => {
     })
 
     if (message.content === prefix + "foo") {
-        let ModRole = message.guild.roles.find("name", "Mods");
+        let modRole = message.guild.roles.find("name", "Mods");
         if (message.member.roles.has(modRole.id)) {
             message.channel.sendMessage("bar!");
         } else {
