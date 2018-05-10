@@ -61,7 +61,7 @@ bot.on('message', message => {
         }
     }
     
-    if (message.content === pregix + "fserdaigle") {
+    if (message.content === prefix + "fserdaigle") {
         if (message.member.roles.get('428950847125323786')) {
             message.reply('Ajout de 150 points pour Serdaigle !');
             points['Serdaigle'].points += 150;
